@@ -37,7 +37,12 @@ color: white;
   padding: 15px;
   border-color: white;
   border-radius: 0px !important;
+  opacity: 1;
+  transition: 0.3s;
 }
+
+/* This will make get started button fade */
+.btn:hover {opacity: 0.6}
 
 .hero-text {
   font-family: Raleway, sans-serif;
