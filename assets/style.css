@@ -59,13 +59,20 @@ color: white;
 
 /* The styling for the new task button for the No-Tify page */
 
-card-custom {
+.card-custom {
+
+  font-family: Raleway, sans-serif;
   overflow: hidden;
-  min-height: 450px;
+  min-height: 700px;
+  max-width: 800px;
   box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
 }
 
+/* The custom task card for the  No-Tify page */
+
 .card-custom-img {
+
+  
   height: 200px;
   min-height: 200px;
   background-repeat: no-repeat;
@@ -102,4 +109,44 @@ card-custom {
   left: 1.25rem;
   width: 100px;
   height: 100px;
+}
+
+.btn.btn-primary {
+
+  align-content: center;
+  font-family: Raleway, sans-serif;
+  letter-spacing: 2px;
+  font-size: 20px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(0, 0, 0);
+  padding: 15px;
+  border-color: rgb(0, 0, 0);
+  border-radius: 0px !important;
+
+}
+
+.btn.btn-outline-primary {
+
+  align-content: center;
+  font-family: Raleway, sans-serif;
+  letter-spacing: 2px;
+  font-size: 20px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(0, 0, 0);
+  padding: 15px;
+  border-color: rgb(0, 0, 0);
+  border-radius: 0px !important;
+  margin: 20px;
+}
+
+.card.card-custom-two {
+
+  font-family: Raleway, sans-serif;
+  overflow: hidden;
+  min-height: 700px;
+  max-width: 800px;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+
 }
