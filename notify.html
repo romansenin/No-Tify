@@ -26,9 +26,14 @@
     <!-- Image and text -->
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="assets/images/dolphin.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="" alt="" width="40" height="40" class="d-inline-block align-top">
             No-Tify
         </a>
+
+        <input type="image" class="d-inline-block align-top" src="assets/images/dolphin.svg" height="100" width="100"
+            alt="">
+
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,6 +54,33 @@
             </ul>
         </div>
     </nav>
+
+
+    <!-- This is the start of the Primary Card that contains the Tasks Added -->
+
+    <article>
+
+        <div class="card card-custom bg-white border-white border-0">
+            <div class="card-custom-img"
+                style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);">
+            </div>
+            <div class="card-custom-avatar">
+                <img class="img-fluid" src="assets/images/add-button.svg" alt="Avatar" />
+            </div>
+            <div class="card-body" style="overflow-y: auto">
+                <h4 class="card-title">New Task</h4>
+                <p class="card-text">Card has minimum height set but will expand if more space is needed for card body
+                    content. You can use Bootstrap <a
+                        href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
+                        target="_blank">card-decks</a> to align multiple cards nicely in a row.</p>
+            </div>
+            <div class="card-footer" style="background: inherit; border-color: inherit;">
+                <a href="#" class="btn btn-primary">Option</a>
+                <a href="#" class="btn btn-outline-primary">Other option</a>
+            </div>
+        </div>
+
+    </article>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
