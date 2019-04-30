@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/notify.css">
 
     <title>No-Tify</title>
 </head>
@@ -346,13 +347,36 @@
             </div>
             <div class="card-body" style="overflow-y: auto">
                 <h4 class="card-title"></h4>
-                <p class="card-text"> <a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
+                <p class="card-text"><a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
                         target="_blank"></a> </p>
+                <div class="tasks-container">
+                    <p>
+                        <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
+                    </p>
+
+                    <h3>Todo</h3>
+                    <ul id="incomplete-tasks">
+                        <li><input type="checkbox"><label></label><input type="text"><button
+                                class="edit">Edit</button><button class="delete">Delete</button></li>
+                        <li class="editMode"><input type="checkbox"><label></label><input type="text"
+                                value="Go Shopping"><button class="edit">Edit</button><button
+                                class="delete">Delete</button></li>
+
+                    </ul>
+
+                    <h3>Completed</h3>
+                    <ul id="completed-tasks">
+                        <li><input type="checkbox" checked><label></label><input type="text"><button
+                                class="edit">Edit</button><button class="delete">Delete</button></li>
+                    </ul>
+                </div>
             </div>
 
         </div>
     </div>
 
+
+    <script type="text/javascript" src="assets/app.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
