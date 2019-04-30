@@ -10,6 +10,7 @@
     />
 
     <!-- Font awesome :) -->
+
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -87,6 +88,38 @@
                 </div>
                 <button
                   id="signup-button"
+                    <input
+                      type="Email"
+                      id="emailInput"
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                      autofocus
+                    />
+                    <label for="emailInput">Email</label>
+                  </div>
+
+                  <div class="form-label-group">
+                    <input
+                      type="password"
+                      id="passwordInput"
+                      class="form-control"
+                      placeholder="Password"
+                      required
+                      autofocus
+                    />
+                    <label for="password">Password</label>
+                  </div>
+
+                <div class="custom-control custom-checkbox mb-3">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="customCheck1"
+                  />
+
+                </div>
+                <button
                   class="btn btn-lg btn-primary btn-block text-uppercase"
                   type="submit"
                 >
@@ -112,6 +145,7 @@
       </div>
     </div>
 
+
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-firestore.js"></script>
@@ -136,5 +170,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="assets/auth.js"></script>
+
   </body>
 </html>
