@@ -13,6 +13,8 @@ $(".form-signup").on("submit", function(event) {
     console.log(cred);
 
     document.getElementsByClassName('form-signup')[0].reset();
+
+    window.location = 'notify.html'; //After successful login, user will be redirected to home.html
   });
 
 });
