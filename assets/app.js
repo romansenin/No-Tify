@@ -1,3 +1,4 @@
+
 //Document is the DOM can be accessed in the console with document.window.
 // Tree is from the top, html, body, p etc.
 
@@ -187,3 +188,5 @@ for (var i = 0; i < completedTasksHolder.children.length; i++) {
 //prevent creation of empty tasks.
 
 //Shange edit to save when you are in edit mode.
+
+
