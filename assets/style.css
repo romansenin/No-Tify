@@ -235,10 +235,10 @@ color: white;
 
   .hero-image-two {
     /* Use "linear-gradient" to add a darken background effect to the image. This will make the text easier to read */
-    background-image: url("images/stucco.jpg");
+    background-image: url("images/cream-one.jpg");
     
     /* Set a specific height */
-    height: 70%;
+    height: 100%;
     
     /* Position and center the image to scale nicely on all screens */
     background-position: center;
@@ -264,7 +264,7 @@ color: white;
       background-image: url("images/stucco.jpg");
       
       /* Set a specific height */
-      height: 70%;
+      height: 40%;
       
       /* Position and center the image to scale nicely on all screens */
       background-position: center;
