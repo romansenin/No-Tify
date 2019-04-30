@@ -1,4 +1,20 @@
 $(document).ready(function() {
+
+  // get data
+  db.collection('tasks').get().then(function(snapshot) {
+    console.log(snapshot.docs);
+  });
+
+  // listen for auth status changes
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      console.log("user logged in: ", user);
+    } else {
+      console.log("user logged out");
+    }
+  });
+
+
   // signup
   $(".form-signup").on("submit", function(event) {
     event.preventDefault();
@@ -24,4 +40,16 @@ $(document).ready(function() {
     });
   });
 
+  // login
+  $(".form-signin").on("submit", function(event) {
+    event.preventDefault();
+
+    // get user info
+    const email = $("#loginEmail").val();
+    const password = $("#loginPassword").val();
+
+    auth.signInWithEmailAndPassword(email, password).then(function(cred) {
+      window.location = "notify.html";
+    });
+  });
 });

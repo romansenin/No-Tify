@@ -24,11 +24,11 @@ body {
   padding: 2rem;
 }
 
-.form-signin {
+.form-signin, .form-signup {
   width: 100%;
 }
 
-.form-signin .btn {
+.form-signin .btn, .form-signup .btn {
   font-size: 80%;
   border-radius: 5rem;
   letter-spacing: .1rem;
