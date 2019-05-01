@@ -24,11 +24,11 @@ body {
   padding: 2rem;
 }
 
-.form-signin {
+.form-signin, .form-signup {
   width: 100%;
 }
 
-.form-signin .btn {
+.form-signin .btn, .form-signup .btn {
   font-size: 80%;
   border-radius: 5rem;
   letter-spacing: .1rem;
@@ -108,4 +108,29 @@ body {
 .btn-facebook {
   color: white;
   background-color: #3b5998;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  margin-top: 500px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }

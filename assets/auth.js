@@ -1,19 +1,16 @@
 $(document).ready(function() {
-  // signup
-  $(".form-signup").on("submit", function(event) {
-    event.preventDefault();
-
-    // get user info
-    const firstName = $("#firstName").val();
-    const lastName = $("#lastName").val();
-    const email = $("#emailInput").val();
-    const password = $("#passwordInput").val();
-
-    // sign up the user
-    auth.createUserWithEmailAndPassword(email, password).then(function(cred) {
-      // document.getElementsByClassName('form-signup')[0].reset();
-      window.location = "notify.html"; // After successful sign up, user will be redirected to notify.html
-    });
+  // listen for auth status changes
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      // get data
+      db.collection("users").doc(user.uid).collection("incomplete").onSnapshot(function(snapshot) {
+        setupTasks(snapshot.docs, "incomplete", user.uid);
+      });
+      db.collection("users").doc(user.uid).collection("complete").onSnapshot(function(snapshot) {
+        setupTasks(snapshot.docs, "complete", user.uid);
+      });
+      setupUI(user); // display greeting
+    }
   });
 
   // logout
@@ -23,5 +20,4 @@ $(document).ready(function() {
       window.location = "index.html"; // Go back to home page after sign out
     });
   });
-
 });

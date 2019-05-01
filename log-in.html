@@ -30,6 +30,14 @@
   </head>
 
   <body>
+    <!-- Password Confirmation modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modal-message"></p>
+      </div>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -40,27 +48,27 @@
                 <div class="form-label-group">
                   <input
                     type="email"
-                    id="inputEmail"
+                    id="loginEmail"
                     class="form-control"
                     placeholder="Email address"
                     required
                     autofocus
                   />
-                  <label for="inputEmail">Email address</label>
+                  <label for="loginEmail">Email address</label>
                 </div>
 
                 <div class="form-label-group">
                   <input
                     type="password"
-                    id="inputPassword"
+                    id="loginPassword"
                     class="form-control"
                     placeholder="Password"
                     required
                   />
-                  <label for="inputPassword">Password</label>
+                  <label for="loginPassword">Password</label>
                 </div>
 
-                <div class="custom-control custom-checkbox mb-3">
+                <!-- <div class="custom-control custom-checkbox mb-3">
                   <input
                     type="checkbox"
                     class="custom-control-input"
@@ -69,7 +77,7 @@
                   <label class="custom-control-label" for="customCheck1"
                     >Remember password</label
                   >
-                </div>
+                </div> -->
                 <button
                   class="btn btn-lg btn-primary btn-block text-uppercase"
                   type="submit"
@@ -77,7 +85,10 @@
                   Sign in
                 </button>
                 <hr class="my-4" />
-                <button
+
+                <!-- To be implemented on free time :P -->
+
+                <!-- <button
                   class="btn btn-lg btn-google btn-block text-uppercase"
                   type="submit"
                 >
@@ -88,12 +99,35 @@
                   type="submit"
                 >
                   <i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook
-                </button>
+                </button> -->
               </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBJpwPDeU43FTABeCp0Cp4aYQl8QBxGmp4",
+        authDomain: "project1-6667a.firebaseapp.com",
+        databaseURL: "https://project1-6667a.firebaseio.com",
+        projectId: "project1-6667a"
+      };
+      firebase.initializeApp(config);
+
+      // make auth and firestore references
+      const auth = firebase.auth();
+    </script>
+    <!-- jQuery link -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/signup-login.js"></script>
   </body>
 </html>

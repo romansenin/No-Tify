@@ -195,13 +195,13 @@
                         <li>
                             <a href="#">
                                 <i class="fa fa-calendar"></i>
-                                <span class="menu-text">Features</span>
+                                <span id="logout" class="menu-text">Features</span>
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <i class="fa fa-folder"></i>
-                                <span id="logout" class="menu-text">Sign Out</span>
+                                <span class="menu-text">Sign Out</span>
                             </a>
                         </li>
                     </ul>
@@ -364,25 +364,15 @@
                 <p class="card-text"><a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
                         target="_blank"></a> </p>
                 <div class="tasks-container">
-                    <p>
-                        <label for="new-task">Add Item</label><input id="new-task" type="text"><button>Add</button>
-                    </p>
+                    <form id="add-task-form">
+                        <label for="new-task">Add Task</label><input id="new-task" type="text"><button type="submit" id="add-task">Add</button>
+                    </form>
 
                     <h3>Todo</h3>
-                    <ul id="incomplete-tasks">
-                        <li><input type="checkbox"><label></label><input type="text"><button
-                                class="edit">Edit</button><button class="delete">Delete</button></li>
-                        <li class="editMode"><input type="checkbox"><label></label><input type="text"
-                                value="Go Shopping"><button class="edit">Edit</button><button
-                                class="delete">Delete</button></li>
-
-                    </ul>
+                    <ul id="incomplete-tasks"></ul>
 
                     <h3>Completed</h3>
-                    <ul id="completed-tasks">
-                        <li><input type="checkbox" checked><label></label><input type="text"><button
-                                class="edit">Edit</button><button class="delete">Delete</button></li>
-                    </ul>
+                    <ul id="completed-tasks"></ul>
                 </div>
             </div>
 
@@ -420,6 +410,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="assets/data.js"></script>
     <script src="assets/auth.js"></script>
 </body>
 
