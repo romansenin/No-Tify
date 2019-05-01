@@ -31,6 +31,15 @@
   </head>
 
   <body>
+    <!-- Password Confirmation modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modal-message"></p>
+      </div>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -48,17 +57,6 @@
                     autofocus
                   />
                   <label for="firstName">First Name</label>
-                </div>
-
-                <div class="form-label-group">
-                  <input
-                    type="text"
-                    id="lastName"
-                    class="form-control"
-                    placeholder="Last Name"
-                    required
-                  />
-                  <label for="lastName">Last Name</label>
                 </div>
 
                 <div class="form-label-group">
@@ -86,6 +84,19 @@
                   />
                   <label for="passwordInput">Password</label>
                 </div>
+
+                <div class="form-label-group">
+                  <input
+                    type="password"
+                    name="password"
+                    id="confirmPassword"
+                    class="form-control"
+                    placeholder="Password"
+                    required
+                    autofocus
+                  />
+                  <label for="confirmPassword">Confirm Password</label>
+                </div>
                 <button
                   class="btn btn-lg btn-primary btn-block text-uppercase"
                   type="submit"
@@ -93,7 +104,10 @@
                   Sign Up
                 </button>
                 <hr class="my-4" />
-                <button
+
+                <!-- To be implemented on free time :P -->
+
+                <!--<button
                   class="btn btn-lg btn-google btn-block text-uppercase"
                   type="submit"
                 >
@@ -104,14 +118,13 @@
                   type="submit"
                 >
                   <i class="fab fa-facebook-f mr-2"></i> Sign Up with Facebook
-                </button>
+                </button> -->
               </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-
 
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
@@ -136,7 +149,6 @@
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"
     ></script>
-    <script src="assets/auth.js"></script>
-
+    <script src="assets/signup-login.js"></script>
   </body>
 </html>
