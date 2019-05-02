@@ -3,6 +3,15 @@ body {
   font-family: Raleways, sans-serif;
 }
 
+/*add task, calendar, features, signout hover effects */
+.hover:hover {
+  color: rgba(160, 160, 160, 0.5);
+  font-style: italic;
+  font-size: 30px;
+} 
+
+
+
 /* The primary hero Image */
 
 .hero-image-notify {
@@ -352,5 +361,9 @@ ul li.editMode input[type=text] {
 ul li.editMode label {
   display:none;
 }
+
+
+
+
 
 
