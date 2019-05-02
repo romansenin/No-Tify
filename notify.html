@@ -19,41 +19,39 @@
     <link rel="stylesheet" href="assets/notify.css">
 
     <title>No-Tify</title>
+    <link rel="shortcut icon" type="image/png" href="assets/images/dolphin.png" />
 </head>
 
-<body>˙
+<body>
     <!-- The Custom Navbar -->
 
     <!-- Image and text -->
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <!-- <img src="" alt="" width="50" height="50" class="d-inline-block align-top"> -->
-            No-Tify
-        </a>
-
-        <input type="image" class="d-inline-block align-top" src="assets/images/dolphin.svg" height="150" width="150"
-            alt="">
+    <div class="hero-image-notify">
+        <div class="hero-text-notify">
+            <div class="title-container">
 
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+                <br>
+                <h1>No-Tify</h1>
+                <br>
 
-
-            </ul>
+            </div>
         </div>
-    </nav>
+    </div>
 
+
+    <br>
 
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                 <!-- sidebar-brand  -->
-                <!--<div class="sidebar-item sidebar-brand">
-                </div>-->
+                <div class="sidebar-item sidebar-brand">
+                    <img src="assets/images/dolphin.svg" width="70" height="70" class="d-inline-block align-top" alt="">
+                    &nbsp; No-Tify
+
+                </div>
+
                 <!-- sidebar-header  -->
                 <div class="sidebar-item sidebar-header d-flex flex-nowrap">
 
@@ -63,55 +61,25 @@
                 <div class=" sidebar-item sidebar-menu">
                     <ul>
                         <li class="header-menu">
-                            <span>My Tasks</span>
                         </li>
                         <li class="sidebar-dropdown">
                             <a href="">
                                 <i class="fa fa-tachometer-alt"></i>
-                                <span class="menu-text">Add Task</span>
-                                <img src="assets/images/add-button.svg" width="25" height="25"><span>New</span>
+                                <p><img src="assets/images/add.svg" alt="alt text" style="float: center" height="20"
+                                        width="20" span class="menu-text">&nbsp;&nbsp;&nbsp;Add Task</span>
                             </a>
 
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Dashboard 1
-                                            <span class="badge badge-pill badge-success">Pro</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dashboard 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dashboard 3</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fa fa-shopping-cart"></i>
-                                <span class="menu-text">Add Calendar</span>
-                                <span class="badge badge-pill badge-danger">3</span>
+                                <p><img src="assets/images/calendar.svg" alt="alt text" style="float: center" width="20"
+                                        height="20" span class="menu-text">&nbsp;&nbsp;&nbsp;Calendar</span>
+
                             </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Products
 
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Orders</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Credit cart</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
 
-                        <!--  Removing Components sidebar link
+                            <!--  Removing Components sidebar link
 
                         <li class="sidebar-dropdown">
                             <a href="#">
@@ -140,7 +108,7 @@
                         </li>
                     -->
 
-                        <!-- Removing Charts sidebar link
+                            <!-- Removing Charts sidebar link
 
                         <li class="sidebar-dropdown">
                             <a href="#">
@@ -166,7 +134,7 @@
                         </li>
                     -->
 
-                        <!-- Removing Maps sidebar link
+                            <!-- Removing Maps sidebar link
 
                         <li class="sidebar-dropdown">
                             <a href="#">
@@ -186,20 +154,22 @@
                         </li>
                     -->
 
-                        <li class="header-menu">
-                            <span>Extra</span>
-                        </li>
-                    
-                        <li>
+                        <li class="header-menu-two">
+
+
+
                             <a href="#">
                                 <i class="fa fa-calendar"></i>
-                                <span class="menu-text">Features</span>
-                            </a>
+                                <p><img src="assets/images/feature.svg" alt="alt text" style="float: center" width="20"
+                                        height="20" span class="menu-text">&nbsp;&nbsp;&nbsp;Features</span>
+
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-folder"></i> 
-                                <div id="logout">Sign Out</div>
+                                <i class="fa fa-folder"></i>
+                                <p><img src="assets/images/logout (1).svg" alt="alt text" style="float: center"
+                                        width="20" height="20" span class="menu-text">&nbsp;&nbsp;&nbsp;Sign
+                                    Out</span>
                             </a>
                         </li>
                     </ul>
@@ -212,7 +182,6 @@
 
                     <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-bell"></i>
-                        <span class="badge badge-pill badge-warning notification">3</span>
                     </a>
                     <div class="dropdown-menu notifications" aria-labelledby="dropdownMenuMessage">
                         <div class="notifications-header">
@@ -226,7 +195,8 @@
                                     <i class="fas fa-check text-success border border-success"></i>
                                 </div>
                                 <div class="content">
-                                    <div class="notification-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+                                    <div class="notification-detail">Lorem ipsum dolor sit amet consectetur
+                                        adipisicing
                                         elit. In totam explicabo</div>
                                     <div class="notification-time">
                                         6 minutes ago
@@ -240,7 +210,8 @@
                                     <i class="fas fa-exclamation text-info border border-info"></i>
                                 </div>
                                 <div class="content">
-                                    <div class="notification-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+                                    <div class="notification-detail">Lorem ipsum dolor sit amet consectetur
+                                        adipisicing
                                         elit. In totam explicabo</div>
                                     <div class="notification-time">
                                         Today
@@ -254,7 +225,8 @@
                                     <i class="fas fa-exclamation-triangle text-warning border border-warning"></i>
                                 </div>
                                 <div class="content">
-                                    <div class="notification-detail">Lorem ipsum dolor sit amet consectetur adipisicing
+                                    <div class="notification-detail">Lorem ipsum dolor sit amet consectetur
+                                        adipisicing
                                         elit. In totam explicabo</div>
                                     <div class="notification-time">
                                         Yesterday
@@ -269,7 +241,6 @@
                 <div class="dropdown">
                     <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-envelope"></i>
-                        <span class="badge badge-pill badge-success notification">7</span>
                     </a>
                     <div class="dropdown-menu messages" aria-labelledby="dropdownMenuMessage">
                         <div class="messages-header">
@@ -329,7 +300,6 @@
                 <div class="dropdown">
                     <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-cog"></i>
-                        <span class="badge-sonar"></span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuMessage">
                         <a class="dropdown-item" href="#">My profile</a>
@@ -352,8 +322,7 @@
 
         <!-- This is the start of the Primary Card that contains the Tasks Added -->
         <div class="container" class="card card-custom bg-white border-white border-0">
-            <div class="card-custom-img"
-                style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);">
+            <div class="card-custom-img" style="background-image: url();">
             </div>
             <div class="card-custom-avatar">
             </div>
@@ -361,16 +330,24 @@
                 <h4 class="card-title"></h4>
                 <p class="card-text"><a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
                         target="_blank"></a> </p>
-                <div class="tasks-container">
+                <div class="tasks-container-header">
+                    <br>
                     <form id="add-task-form">
-                        <label for="new-task">Add Task</label><input id="new-task" type="text"><button type="submit"
-                            id="add-task">Add</button>
+                        <img src="assets/images/add-button.svg" width="30" height="30" class="d-inline-block align-top"
+                            alt=""><label for="new-task">&nbsp;&nbsp;New
+                            Task</label>
+
+                        <br>
+                        <br>
+
+                        <input id="new-task" type="text"><button type="submit" id="add-task">Add</button>
                     </form>
 
-                    <h3>Todo</h3>
+                    <h3>To - Do</h3>
                     <ul id="incomplete-tasks"></ul>
 
-                    <h3>Completed</h3>
+                    <img src="assets/images/checkmark-verify-interface-symbol-button.svg" width="30" height="30"
+                        class="d-inline-block align-top" alt="">&nbsp;&nbsp;Completed</h3>
                     <ul id="completed-tasks"></ul>
                 </div>
             </div>
