@@ -171,4 +171,8 @@ $(document).ready(function() {
     //   }
     // );
   });
+
+  $("#signup-button").on("click", function() {
+    window.location = "sign-up.html";
+  });
 });
