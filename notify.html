@@ -2,6 +2,29 @@
 
 <html lang="en">
   <head>
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-firestore.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBJpwPDeU43FTABeCp0Cp4aYQl8QBxGmp4",
+        authDomain: "project1-6667a.firebaseapp.com",
+        databaseURL: "https://project1-6667a.firebaseio.com",
+        projectId: "project1-6667a"
+      };
+      firebase.initializeApp(config);
+
+      // make auth and firestore references
+      const auth = firebase.auth();
+      auth.onAuthStateChanged(function(user) {
+        // if not logged in, redirect to home page
+        if (!user) {
+          window.location = "index.html";
+        }
+      });
+      const db = firebase.firestore();
+    </script>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -209,7 +232,9 @@
                       height="20"
                       span
                       class="menu-text"
-                    />&nbsp;&nbsp;&nbsp;<span id="logout" class="hover">Sign Out</span>
+                    />&nbsp;&nbsp;&nbsp;<span id="logout" class="hover"
+                      >Sign Out</span
+                    >
                   </p>
                 </a>
               </li>
@@ -450,24 +475,6 @@
         </div>
       </div>
     </div>
-
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-firestore.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBJpwPDeU43FTABeCp0Cp4aYQl8QBxGmp4",
-        authDomain: "project1-6667a.firebaseapp.com",
-        databaseURL: "https://project1-6667a.firebaseio.com",
-        projectId: "project1-6667a"
-      };
-      firebase.initializeApp(config);
-
-      // make auth and firestore references
-      const auth = firebase.auth();
-      const db = firebase.firestore();
-    </script>
 
     <script type="text/javascript" src="assets/app.js"></script>
 
