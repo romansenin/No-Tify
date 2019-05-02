@@ -3,12 +3,10 @@ body {
   font-family: Raleways, sans-serif;
 }
 
-/*add task, calendar, features, signout hover effects */
 .hover:hover {
-  color: rgba(160, 160, 160, 0.5);
-  font-style: italic;
-  font-size: 30px;
-} 
+  background-color: rgba(233, 232, 232, 0.356);
+}
+
 
 
 
