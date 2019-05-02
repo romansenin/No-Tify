@@ -1,113 +1,77 @@
 <!DOCTYPE html>
 
 <html lang="en-us">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- Font awesome :) -->
+<head>
 
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
+  <!-- link to favicon -->
+  <link rel="shortcut icon" type="image/png" href="assets/images/dolphin.png" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="assets/log-in.css" />
 
-    <title>Sign-Up</title>
-  </head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <body>
-    <!-- Password Confirmation modal -->
-    <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p id="modal-message"></p>
-      </div>
+  <!-- Font awesome :) -->
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/log-in.css" />
+
+  <title>Sign-Up</title>
+</head>
+
+<body>
+  <!-- Password Confirmation modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modal-message"></p>
     </div>
+  </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-          <div class="card card-signup my-5">
-            <div class="card-body">
-              <h5 class="card-title text-center">Sign Up</h5>
-              <form class="form-signup">
-                <div class="form-label-group">
-                  <input
-                    type="text"
-                    id="firstName"
-                    class="form-control"
-                    placeholder="First Name"
-                    required
-                    autofocus
-                  />
-                  <label for="firstName">First Name</label>
-                </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signup my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign Up</h5>
+            <form class="form-signup">
+              <div class="form-label-group">
+                <input type="text" id="firstName" class="form-control" placeholder="First Name" required autofocus />
+                <label for="firstName">First Name</label>
+              </div>
 
-                <div class="form-label-group">
-                  <input
-                    type="email"
-                    name="email"
-                    id="emailInput"
-                    class="form-control"
-                    placeholder="Email"
-                    required
-                    autofocus
-                  />
-                  <label for="emailInput">Email</label>
-                </div>
+              <div class="form-label-group">
+                <input type="email" name="email" id="emailInput" class="form-control" placeholder="Email" required
+                  autofocus />
+                <label for="emailInput">Email</label>
+              </div>
 
-                <div class="form-label-group">
-                  <input
-                    type="password"
-                    name="password"
-                    id="passwordInput"
-                    class="form-control"
-                    placeholder="Password"
-                    required
-                    autofocus
-                  />
-                  <label for="passwordInput">Password</label>
-                </div>
+              <div class="form-label-group">
+                <input type="password" name="password" id="passwordInput" class="form-control" placeholder="Password"
+                  required autofocus />
+                <label for="passwordInput">Password</label>
+              </div>
 
-                <div class="form-label-group">
-                  <input
-                    type="password"
-                    name="password"
-                    id="confirmPassword"
-                    class="form-control"
-                    placeholder="Password"
-                    required
-                    autofocus
-                  />
-                  <label for="confirmPassword">Confirm Password</label>
-                </div>
-                <button
-                  class="btn btn-lg btn-primary btn-block text-uppercase"
-                  type="submit"
-                >
-                  Sign Up
-                </button>
-                <hr class="my-4" />
+              <div class="form-label-group">
+                <input type="password" name="password" id="confirmPassword" class="form-control" placeholder="Password"
+                  required autofocus />
+                <label for="confirmPassword">Confirm Password</label>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
+                Sign Up
+              </button>
+              <hr class="my-4" />
 
-                <!-- To be implemented on free time :P -->
+              <!-- To be implemented on free time :P -->
 
-                <!--<button
+              <!--<button
                   class="btn btn-lg btn-google btn-block text-uppercase"
                   type="submit"
                 >
@@ -119,36 +83,35 @@
                 >
                   <i class="fab fa-facebook-f mr-2"></i> Sign Up with Facebook
                 </button> -->
-              </form>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-firestore.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBJpwPDeU43FTABeCp0Cp4aYQl8QBxGmp4",
-        authDomain: "project1-6667a.firebaseapp.com",
-        databaseURL: "https://project1-6667a.firebaseio.com",
-        projectId: "project1-6667a"
-      };
-      firebase.initializeApp(config);
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-firestore.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBJpwPDeU43FTABeCp0Cp4aYQl8QBxGmp4",
+      authDomain: "project1-6667a.firebaseapp.com",
+      databaseURL: "https://project1-6667a.firebaseio.com",
+      projectId: "project1-6667a"
+    };
+    firebase.initializeApp(config);
 
-      // make auth and firestore references
-      const auth = firebase.auth();
-      const db = firebase.firestore();
-    </script>
-    <!-- jQuery link -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script src="assets/signup-login.js"></script>
-  </body>
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+  </script>
+  <!-- jQuery link -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="assets/signup-login.js"></script>
+</body>
+
 </html>
