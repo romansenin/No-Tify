@@ -57,10 +57,9 @@ color: white;
 }
 
 /* Setting the height for the custom NavBar */
-.navbar {
-  font-size: 20px;
-  font-family: 'Raleway', sans-serif;
-  min-height: 80px;
+nav {
+  color: white;
+  background: white;
 }
 
 
@@ -135,7 +134,7 @@ color: white;
 }
 
 /* The primary container for the No-Tify page */
-.container{
+.container-main{
 
   margin-top: 10px;
   margin-left: 450px;
@@ -655,8 +654,6 @@ body {
   font-size: .9rem; }
 
 /*----------------page-wrapper----------------*/
-.page-wrapper {
-  height: 100vh; }
   .page-wrapper .theme {
     width: 40px;
     height: 40px;
@@ -782,3 +779,7 @@ body {
 .boder-radius-on .sidebar-search .input-group-append .input-group-text {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px; }
+
+.sidebar-dropdown {
+  width: 100%;
+}
