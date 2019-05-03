@@ -1,5 +1,3 @@
-let numIncomplete, numComplete;
-
 function setupUI(user) {
   $(".card-title").text("Hi " + user.displayName+ "!");
 }
@@ -10,8 +8,6 @@ let cred;
 const setupTasks = (data, collection, uid) => {
   cred = uid;
   if (collection === "incomplete") {
-    numIncomplete = data.length;
-
     $("#incomplete-tasks").empty();
 
     $.each(data, function(index, doc) {
@@ -29,7 +25,6 @@ const setupTasks = (data, collection, uid) => {
       $("#incomplete-tasks").append(li);
     });
   } else {
-    numComplete = data.length;
 
     $("#completed-tasks").empty();
 
