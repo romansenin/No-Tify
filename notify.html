@@ -2,29 +2,29 @@
 
 <html lang="en">
 
-  <head>
+<head>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-firestore.js"></script>
     <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBJpwPDeU43FTABeCp0Cp4aYQl8QBxGmp4",
-        authDomain: "project1-6667a.firebaseapp.com",
-        databaseURL: "https://project1-6667a.firebaseio.com",
-        projectId: "project1-6667a"
-      };
-      firebase.initializeApp(config);
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBJpwPDeU43FTABeCp0Cp4aYQl8QBxGmp4",
+            authDomain: "project1-6667a.firebaseapp.com",
+            databaseURL: "https://project1-6667a.firebaseio.com",
+            projectId: "project1-6667a"
+        };
+        firebase.initializeApp(config);
 
-      // make auth and firestore references
-      const auth = firebase.auth();
-      auth.onAuthStateChanged(function(user) {
-        // if not logged in, redirect to home page
-        if (!user) {
-          window.location = "index.html";
-        }
-      });
-      const db = firebase.firestore();
+        // make auth and firestore references
+        const auth = firebase.auth();
+        auth.onAuthStateChanged(function (user) {
+            // if not logged in, redirect to home page
+            if (!user) {
+                window.location = "index.html";
+            }
+        });
+        const db = firebase.firestore();
     </script>
 
     <!-- Required meta tags -->
@@ -73,42 +73,30 @@
                 </div>
                 <!-- sidebar-header  -->
                 <div class="sidebar-item sidebar-header d-flex flex-nowrap"></div>
-              
-          <!-- sidebar-menu  -->
-          <div class=" sidebar-item sidebar-menu">
-            <ul>
-              <li class="header-menu"></li>
-              <li class="sidebar-dropdown">
-                <a href="" class="hover">
-                  <i class="fa fa-tachometer-alt"></i>
-                  <p>
-                    <img
-                      src="assets/images/add.svg"
-                      alt="alt text"
-                      style="float: center"
-                      height="20"
-                      width="20"
-                      span
-                      class="menu-text"
-                    />&nbsp;&nbsp;&nbsp;<span>Add Task</span>
-                  </p></a>
-              </li>
 
-              <li class="sidebar-dropdown">
-                <a href="#" class="hover">
-                  <i class="fa fa-shopping-cart"></i>
-                  <p>
-                    <img
-                      src="assets/images/calendar.svg"
-                      alt="alt text"
-                      style="float: center"
-                      width="20"
-                      height="20"
-                      span
-                      class="menu-text"
-                    />&nbsp;&nbsp;&nbsp;<span>Calendar</span>
-                  </p></a
-                >
+                <!-- sidebar-menu  -->
+                <div class=" sidebar-item sidebar-menu">
+                    <ul>
+                        <li class="header-menu"></li>
+                        <li class="sidebar-dropdown">
+                            <a href="" class="hover">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <p>
+                                    <img src="assets/images/add.svg" alt="alt text" style="float: center" height="20"
+                                        width="20" span class="menu-text" />&nbsp;&nbsp;&nbsp;<span>Add Task</span>
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-dropdown">
+                            <a href="#" class="hover">
+                                <i class="fa fa-shopping-cart"></i>
+                                <p>
+                                    <img src="assets/images/calendar.svg" alt="alt text" style="float: center"
+                                        width="20" height="20" span
+                                        class="menu-text" />&nbsp;&nbsp;&nbsp;<span>Calendar</span>
+                                </p>
+                            </a>
 
                             <!--  Removing Components sidebar link
 
@@ -185,84 +173,28 @@
                         </li>
                     -->
                         </li>
-   
-              <li class="header-menu-two">
-                <a href="features.html" class="hover">
-                  <i class="fa fa-calendar"></i>
-                  <p>
-                    <img
-                      src="assets/images/feature.svg"
-                      alt="alt text"
-                      style="float: center"
-                      width="20"
-                      height="20"
-                      span
-                      class="menu-text"
-                    />&nbsp;&nbsp;&nbsp;<span >Features</span>
-                  </p></a
-                >
-              </li>
-              <li>
-                 <a href="index.html" class="hover">
-                  <i class="fa fa-folder"></i>
-                  <p>
-                    <img
-                      src="assets/images/logout (1).svg"
-                      alt="alt text"
-                      style="float: center"
-                      width="20"
-                      height="20"
-                      span
-                      class="menu-text"
 
-                    />&nbsp;&nbsp;&nbsp;<span id="logout" class="hover"
-                      >Sign Out</span
-                    >
+                        <li class="header-menu-two">
+                            <a href="features.html" class="hover">
+                                <i class="fa fa-calendar"></i>
+                                <p>
+                                    <img src="assets/images/feature.svg" alt="alt text" style="float: center" width="20"
+                                        height="20" span class="menu-text" />&nbsp;&nbsp;&nbsp;<span>Features</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="hover">
+                                <i class="fa fa-folder"></i>
+                                <p>
+                                    <img src="assets/images/logout (1).svg" alt="alt text" style="float: center"
+                                        width="20" height="20" span class="menu-text" />&nbsp;&nbsp;&nbsp;<span
+                                        id="logout" class="hover">Sign Out</span>
 
-                  </p>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <!-- sidebar-menu  -->
-        </div>
-        <!-- sidebar-footer  -->
-        <div class="sidebar-footer">
-          <div class="dropdown">
-            <a
-              href="#"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <i class="fa fa-bell"></i>
-            </a>
-            <div
-              class="dropdown-menu notifications"
-              aria-labelledby="dropdownMenuMessage"
-            >
-              <div class="notifications-header">
-                <i class="fa fa-bell"></i>
-                Notifications
-              </div>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
-                <div class="notification-content">
-                  <div class="icon">
-                    <i
-                      class="fas fa-check text-success border border-success"
-                    ></i>
-                  </div>
-                  <div class="content">
-                    <div class="notification-detail">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      In totam explicabo
-                    </div>
-                    <div class="notification-time">
-                      6 minutes ago
-                    </div>
-                  </div>
-                  
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <!-- sidebar-menu  -->
             </div>
@@ -292,127 +224,158 @@
                                         6 minutes ago
                                     </div>
                                 </div>
+
                             </div>
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <div class="notification-content">
-                                <div class="icon">
-                                    <i class="fas fa-exclamation text-info border border-info"></i>
-                                </div>
-                                <div class="content">
-                                    <div class="notification-detail">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        In totam explicabo
-                                    </div>
-                                    <div class="notification-time">
-                                        Today
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <div class="notification-content">
-                                <div class="icon">
-                                    <i class="fas fa-exclamation-triangle text-warning border border-warning"></i>
-                                </div>
-                                <div class="content">
-                                    <div class="notification-detail">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        In totam explicabo
-                                    </div>
-                                    <div class="notification-time">
-                                        Yesterday
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-center" href="#">View all notifications</a>
+                            <!-- sidebar-menu  -->
                     </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-envelope"></i>
-                    </a>
-                    <div class="dropdown-menu messages" aria-labelledby="dropdownMenuMessage">
-                        <div class="messages-header">
-                            <i class="fa fa-envelope"></i>
-                            Messages
+                    <!-- sidebar-footer  -->
+                    <div class="sidebar-footer">
+                        <div class="dropdown">
+                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell"></i>
+                            </a>
+                            <div class="dropdown-menu notifications" aria-labelledby="dropdownMenuMessage">
+                                <div class="notifications-header">
+                                    <i class="fa fa-bell"></i>
+                                    Notifications
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">
+                                    <div class="notification-content">
+                                        <div class="icon">
+                                            <i class="fas fa-check text-success border border-success"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="notification-detail">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                In totam explicabo
+                                            </div>
+                                            <div class="notification-time">
+                                                6 minutes ago
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="notification-content">
+                                        <div class="icon">
+                                            <i class="fas fa-exclamation text-info border border-info"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="notification-detail">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                In totam explicabo
+                                            </div>
+                                            <div class="notification-time">
+                                                Today
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="notification-content">
+                                        <div class="icon">
+                                            <i
+                                                class="fas fa-exclamation-triangle text-warning border border-warning"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="notification-detail">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                In totam explicabo
+                                            </div>
+                                            <div class="notification-time">
+                                                Yesterday
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-center" href="#">View all notifications</a>
+                            </div>
                         </div>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                            <div class="message-content">
-                                <div class="pic">
-                                    <!-- <img src="img/user.jpg" alt=""> -->
+                        <div class="dropdown">
+                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                            <div class="dropdown-menu messages" aria-labelledby="dropdownMenuMessage">
+                                <div class="messages-header">
+                                    <i class="fa fa-envelope"></i>
+                                    Messages
                                 </div>
-                                <div class="content">
-                                    <div class="message-title">
-                                        <strong> Jhon doe</strong>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">
+                                    <div class="message-content">
+                                        <div class="pic">
+                                            <!-- <img src="img/user.jpg" alt=""> -->
+                                        </div>
+                                        <div class="content">
+                                            <div class="message-title">
+                                                <strong> Jhon doe</strong>
+                                            </div>
+                                            <div class="message-detail">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                In totam explicabo
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="message-detail">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        In totam explicabo
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="message-content">
+                                        <div class="pic">
+                                            <!-- <img src="img/user.jpg" alt=""> -->
+                                        </div>
+                                        <div class="content">
+                                            <div class="message-title">
+                                                <strong> Jhon doe</strong>
+                                            </div>
+                                            <div class="message-detail">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                In totam explicabo
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="message-content">
+                                        <div class="pic">
+                                            <!-- <img src="img/user.jpg" alt=""> -->
+                                        </div>
+                                        <div class="content">
+                                            <div class="message-title">
+                                                <strong> Jhon doe</strong>
+                                            </div>
+                                            <div class="message-detail">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                In totam explicabo
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-center" href="#">View all messages</a>
                             </div>
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <div class="message-content">
-                                <div class="pic">
-                                    <!-- <img src="img/user.jpg" alt=""> -->
-                                </div>
-                                <div class="content">
-                                    <div class="message-title">
-                                        <strong> Jhon doe</strong>
-                                    </div>
-                                    <div class="message-detail">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        In totam explicabo
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-cog"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuMessage">
+                                <a class="dropdown-item" href="#">My profile</a>
+                                <a class="dropdown-item" href="#">Help</a>
+                                <a class="dropdown-item" href="#">Setting</a>
                             </div>
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <div class="message-content">
-                                <div class="pic">
-                                    <!-- <img src="img/user.jpg" alt=""> -->
-                                </div>
-                                <div class="content">
-                                    <div class="message-title">
-                                        <strong> Jhon doe</strong>
-                                    </div>
-                                    <div class="message-detail">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        In totam explicabo
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-center" href="#">View all messages</a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <i class="fa fa-power-off"></i>
+                            </a>
+                        </div>
+                        <div class="pinned-footer">
+                            <a href="#">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-cog"></i>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuMessage">
-                        <a class="dropdown-item" href="#">My profile</a>
-                        <a class="dropdown-item" href="#">Help</a>
-                        <a class="dropdown-item" href="#">Setting</a>
-                    </div>
-                </div>
-                <div>
-                    <a href="#">
-                        <i class="fa fa-power-off"></i>
-                    </a>
-                </div>
-                <div class="pinned-footer">
-                    <a href="#">
-                        <i class="fas fa-ellipsis-h"></i>
-                    </a>
-                </div>
-            </div>
         </nav>
 
         <!-- This is the start of the Primary Card that contains the Tasks Added -->
@@ -441,9 +404,12 @@
                     <h3>To - Do</h3>
                     <ul id="incomplete-tasks"></ul>
 
-                    <img src="assets/images/checkmark-verify-interface-symbol-button.svg" width="30" height="30"
-                        class="d-inline-block align-top" alt="" />&nbsp;&nbsp;
-                    <h3>Completed</h3>
+                    <div>
+                        <img style="display: block;" src="assets/images/checkmark-verify-interface-symbol-button.svg"
+                            width="30" height="30" class="d-inline-block align-top" alt="" />
+                        &nbsp;&nbsp;Completed</h3>
+                    </div>
+
                     <ul id="completed-tasks"></ul>
                 </div>
             </div>
