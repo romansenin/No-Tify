@@ -1,437 +1,248 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
-<head>
+  <head>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-firestore.js"></script>
     <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyBJpwPDeU43FTABeCp0Cp4aYQl8QBxGmp4",
-            authDomain: "project1-6667a.firebaseapp.com",
-            databaseURL: "https://project1-6667a.firebaseio.com",
-            projectId: "project1-6667a"
-        };
-        firebase.initializeApp(config);
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBJpwPDeU43FTABeCp0Cp4aYQl8QBxGmp4",
+        authDomain: "project1-6667a.firebaseapp.com",
+        databaseURL: "https://project1-6667a.firebaseio.com",
+        projectId: "project1-6667a"
+      };
+      firebase.initializeApp(config);
 
-        // make auth and firestore references
-        const auth = firebase.auth();
-        auth.onAuthStateChanged(function (user) {
-            // if not logged in, redirect to home page
-            if (!user) {
-                window.location = "index.html";
-            }
-        });
-        const db = firebase.firestore();
+      // make auth and firestore references
+      const auth = firebase.auth();
+      auth.onAuthStateChanged(function(user) {
+        // if not logged in, redirect to home page
+        if (!user) {
+          window.location = "index.html";
+        }
+      });
+      const db = firebase.firestore();
     </script>
 
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Google Fonts -->
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Raleway|Wire+One" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Raleway|Wire+One"
+      rel="stylesheet"
+    />
 
-    <!-- Bootstrap CSS -->
+    <!-- Font awesome -->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <!-- Materialize icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Compiled and minified Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Link to Moment.js -->
+    <script src="http://momentjs.com/downloads/moment.min.js"></script>
+
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="assets/notify.css" />
 
-    <title>No-Tify</title>
-    <link rel="shortcut icon" type="image/png" href="assets/images/dolphin.png" />
-</head>
+    <!-- Compiled and minified Materialize CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 
-<body>
+    <title>No-Tify</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="assets/images/dolphin.png"
+    />
+  </head>
+
+  <body>
     <!-- The Custom Navbar -->
 
     <!-- Image and text -->
     <div class="hero-image-notify">
-        <div class="hero-text-notify">
-            <div class="title-container">
-                <br />
-                <h1>No-Tify</h1>
-                <br />
-            </div>
+      <div class="hero-text-notify">
+        <div class="title-container">
+          <h1>No-Tify</h1>
         </div>
+      </div>
     </div>
 
     <br />
 
-    <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
-        <nav id="sidebar" class="sidebar-wrapper">
-            <div class="sidebar-content">
-                <!-- sidebar-brand  -->
-                <div class="sidebar-item sidebar-brand">
-                    <img src="assets/images/dolphin.svg" width="70" height="70" class="d-inline-block align-top"
-                        alt="" />
-                    &nbsp; No-Tify
-                </div>
-                <!-- sidebar-header  -->
-                <div class="sidebar-item sidebar-header d-flex flex-nowrap"></div>
-
-                <!-- sidebar-menu  -->
-                <div class=" sidebar-item sidebar-menu">
-                    <ul>
-                        <li class="header-menu"></li>
-                        <li class="sidebar-dropdown">
-                            <a href="" class="hover">
-                                <i class="fa fa-tachometer-alt"></i>
-                                <p>
-                                    <img src="assets/images/add.svg" alt="alt text" style="float: center" height="20"
-                                        width="20" span class="menu-text" />&nbsp;&nbsp;&nbsp;<span>Add Task</span>
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-dropdown">
-                            <a href="#" class="hover">
-                                <i class="fa fa-shopping-cart"></i>
-                                <p>
-                                    <img src="assets/images/calendar.svg" alt="alt text" style="float: center"
-                                        width="20" height="20" span
-                                        class="menu-text" />&nbsp;&nbsp;&nbsp;<span>Calendar</span>
-                                </p>
-                            </a>
-
-                            <!--  Removing Components sidebar link
-
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="far fa-gem"></i>
-                                <span class="menu-text">Components</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">General</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Panels</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tables</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Icons</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Forms</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    -->
-
-                            <!-- Removing Charts sidebar link
-
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-chart-line"></i>
-                                <span class="menu-text">Charts</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Pie chart</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Line chart</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Bar chart</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Histogram</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    -->
-
-                            <!-- Removing Maps sidebar link
-
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-globe"></i>
-                                <span class="menu-text">Maps</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Google maps</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Open street map</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    -->
-                        </li>
-
-                        <li class="header-menu-two">
-                            <a href="features.html" class="hover">
-                                <i class="fa fa-calendar"></i>
-                                <p>
-                                    <img src="assets/images/feature.svg" alt="alt text" style="float: center" width="20"
-                                        height="20" span class="menu-text" />&nbsp;&nbsp;&nbsp;<span>Features</span>
-                                </p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.html" class="hover">
-                                <i class="fa fa-folder"></i>
-                                <p>
-                                    <img src="assets/images/logout (1).svg" alt="alt text" style="float: center"
-                                        width="20" height="20" span class="menu-text" />&nbsp;&nbsp;&nbsp;<span
-                                        id="logout" class="hover">Sign Out</span>
-
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- sidebar-menu  -->
-            </div>
-            <!-- sidebar-footer  -->
-            <div class="sidebar-footer">
-                <div class="dropdown">
-                    <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-bell"></i>
-                    </a>
-                    <div class="dropdown-menu notifications" aria-labelledby="dropdownMenuMessage">
-                        <div class="notifications-header">
-                            <i class="fa fa-bell"></i>
-                            Notifications
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                            <div class="notification-content">
-                                <div class="icon">
-                                    <i class="fas fa-check text-success border border-success"></i>
-                                </div>
-                                <div class="content">
-                                    <div class="notification-detail">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        In totam explicabo
-                                    </div>
-                                    <div class="notification-time">
-                                        6 minutes ago
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!-- sidebar-menu  -->
-                    </div>
-                    <!-- sidebar-footer  -->
-                    <div class="sidebar-footer">
-                        <div class="dropdown">
-                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-bell"></i>
-                            </a>
-                            <div class="dropdown-menu notifications" aria-labelledby="dropdownMenuMessage">
-                                <div class="notifications-header">
-                                    <i class="fa fa-bell"></i>
-                                    Notifications
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">
-                                    <div class="notification-content">
-                                        <div class="icon">
-                                            <i class="fas fa-check text-success border border-success"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="notification-detail">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                In totam explicabo
-                                            </div>
-                                            <div class="notification-time">
-                                                6 minutes ago
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <div class="notification-content">
-                                        <div class="icon">
-                                            <i class="fas fa-exclamation text-info border border-info"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="notification-detail">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                In totam explicabo
-                                            </div>
-                                            <div class="notification-time">
-                                                Today
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <div class="notification-content">
-                                        <div class="icon">
-                                            <i
-                                                class="fas fa-exclamation-triangle text-warning border border-warning"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="notification-detail">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                In totam explicabo
-                                            </div>
-                                            <div class="notification-time">
-                                                Yesterday
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-center" href="#">View all notifications</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-envelope"></i>
-                            </a>
-                            <div class="dropdown-menu messages" aria-labelledby="dropdownMenuMessage">
-                                <div class="messages-header">
-                                    <i class="fa fa-envelope"></i>
-                                    Messages
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">
-                                    <div class="message-content">
-                                        <div class="pic">
-                                            <!-- <img src="img/user.jpg" alt=""> -->
-                                        </div>
-                                        <div class="content">
-                                            <div class="message-title">
-                                                <strong> Jhon doe</strong>
-                                            </div>
-                                            <div class="message-detail">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                In totam explicabo
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <div class="message-content">
-                                        <div class="pic">
-                                            <!-- <img src="img/user.jpg" alt=""> -->
-                                        </div>
-                                        <div class="content">
-                                            <div class="message-title">
-                                                <strong> Jhon doe</strong>
-                                            </div>
-                                            <div class="message-detail">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                In totam explicabo
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <div class="message-content">
-                                        <div class="pic">
-                                            <!-- <img src="img/user.jpg" alt=""> -->
-                                        </div>
-                                        <div class="content">
-                                            <div class="message-title">
-                                                <strong> Jhon doe</strong>
-                                            </div>
-                                            <div class="message-detail">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                In totam explicabo
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-center" href="#">View all messages</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-cog"></i>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuMessage">
-                                <a class="dropdown-item" href="#">My profile</a>
-                                <a class="dropdown-item" href="#">Help</a>
-                                <a class="dropdown-item" href="#">Setting</a>
-                            </div>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <i class="fa fa-power-off"></i>
-                            </a>
-                        </div>
-                        <div class="pinned-footer">
-                            <a href="#">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </a>
-                        </div>
-                    </div>
-        </nav>
-
-        <!-- This is the start of the Primary Card that contains the Tasks Added -->
-        <div class="container" class="card card-custom bg-white border-white border-0">
-            <div class="card-custom-img" style="background-image: url();"></div>
-            <div class="card-custom-avatar"></div>
-            <div class="card-body" style="overflow-y: auto">
-                <h4 class="card-title"></h4>
-                <p class="card-text">
-                    <a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks" target="_blank"></a>
-                </p>
-                <div class="tasks-container-header">
-                    <br />
-                    <form id="add-task-form">
-                        <img src="assets/images/add-button.svg" width="30" height="30" class="d-inline-block align-top"
-                            alt="" /><label for="new-task">&nbsp;&nbsp;New Task</label>
-
-                        <br />
-                        <br />
-
-                        <input id="new-task" type="text" /><button type="submit" id="add-task">
-                            Add
-                        </button>
-                    </form>
-
-                    <h3>To - Do</h3>
-                    <ul id="incomplete-tasks"></ul>
-
-                    <div>
-                        <img style="display: block;" src="assets/images/checkmark-verify-interface-symbol-button.svg"
-                            width="30" height="30" class="d-inline-block align-top" alt="" />
-                        &nbsp;&nbsp;Completed</h3>
-                    </div>
-
-                    <ul id="completed-tasks"></ul>
-                </div>
-            </div>
+    <div class="page-wrapper toggled">
+      <nav class="sidebar-wrapper">
+        <!-- sidebar-brand  -->
+        <div class="sidebar-item sidebar-brand">
+          <img
+            src="assets/images/dolphin.svg"
+            width="70"
+            height="70"
+            class="d-inline-block align-top"
+            alt=""
+          />
+          <span>&nbsp; No-Tify</span>
         </div>
+
+        <!-- sidebar-menu  -->
+        <div class="sidebar-item sidebar-menu">
+          <ul>
+            <li class="sidebar-dropdown">
+              <a href="" class="hover-">
+                <img
+                  src="assets/images/add.svg"
+                  alt="alt text"
+                  style="float: center"
+                  height="20"
+                  width="20"
+                  span
+                  class="menu-text"
+                /><span>&nbsp;&nbsp;&nbsp;Add Task</span>
+              </a>
+            </li>
+
+            <li class="sidebar-dropdown">
+              <a href="#" class="hover-">
+                <img
+                  src="assets/images/calendar.svg"
+                  alt="alt text"
+                  style="float: center"
+                  width="20"
+                  height="20"
+                  span
+                  class="menu-text"
+                /><span>&nbsp;&nbsp;&nbsp;Calendar</span>
+              </a>
+            </li>
+
+            <li class="sidebar-dropdown">
+              <a href="features.html" class="hover-">
+                <img
+                  src="assets/images/feature.svg"
+                  alt="alt text"
+                  style="float: center"
+                  width="20"
+                  height="20"
+                  span
+                  class="menu-text"
+                /><span>&nbsp;&nbsp;&nbsp;Features</span>
+              </a>
+            </li>
+            <li class="sidebar-dropdown">
+              <a href="index.html" class="hover-">
+                <img
+                  src="assets/images/logout (1).svg"
+                  alt="alt text"
+                  style="float: center"
+                  width="20"
+                  height="20"
+                  span
+                  class="menu-text"
+                /><span id="logout" class="hover-"
+                  >&nbsp;&nbsp;&nbsp;Sign Out</span
+                >
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
 
+    <!-- This is the start of the Primary Card that contains the Tasks Added -->
+    <div
+      class="container-main"
+      class="card card-custom bg-white border-white border-0"
+    >
+      <div class="card-body">
+        <h4 class="card-title"></h4>
+        <div class="tasks-container-header">
+          <div class="row">
+            <form id="add-task-form" class="col s12">
+              <div class="row">
+                <div class="input-field">
+                  <input
+                    autocomplete="off"
+                    id="new_task"
+                    type="text"
+                    class="validate"
+                  />
+                  <label for="new_task">Add a to-do...</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field">
+                  <input
+                    autocomplete="off"
+                    id="prefDate"
+                    type="text"
+                    class="datepicker"
+                  />
+                  <label for="prefDate">Select date</label>
+                </div>
+              </div>
+              <div class="row">
+                <button id="add-task-button" type="submit">
+                  Add
+                </button>
+              </div>
+            </form>
+          </div>
 
-    <script type="text/javascript" src="assets/app.js"></script>
+          <div class="row">
+            <div class="col s12">
+              <span class="fa fa-calendar"> To Do</span>
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <ul id="incomplete-tasks"></ul>
+            </div>
+          </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+          <div class="row">
+            <div class="col s12">
+              <span class="fa fa-calendar-check"> Completed</span>
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <ul id="completed-tasks"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
     <script src="assets/data.js"></script>
     <script src="assets/auth.js"></script>
-</body>
-
+  </body>
 </html>

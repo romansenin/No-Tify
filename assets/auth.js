@@ -3,11 +3,8 @@ $(document).ready(function() {
   auth.onAuthStateChanged(function(user) {
     if (user) {
       // get data
-      db.collection("users").doc(user.uid).collection("incomplete").onSnapshot(function(snapshot) {
-        setupTasks(snapshot.docs, "incomplete", user.uid);
-      });
-      db.collection("users").doc(user.uid).collection("complete").onSnapshot(function(snapshot) {
-        setupTasks(snapshot.docs, "complete", user.uid);
+      db.collection("users").doc(user.uid).collection("tasks").orderBy("unixTime").onSnapshot(function(snapshot) {
+        setupTasks(snapshot.docs, user.uid);
       });
       setupUI(user); // display greeting
     }
