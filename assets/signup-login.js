@@ -9,82 +9,121 @@ $(document).ready(function() {
     const password = $("#passwordInput").val();
     const confirmPassword = $("#confirmPassword").val();
 
-    if (password !== confirmPassword || password.length < 6) {
-      const modalMessage = $("#modal-message");
+    // API Call to the email verification API
+    var apiKey = "cc7a615c717948168775c14fe5dd4f30";
+    var queryURL =
+      "https://api.zerobounce.net/v1/validatewithip?apikey=" +
+      apiKey +
+      "&email=" +
+      email +
+      "&ipAddress=156.124.12.145";
 
-      if (password !== confirmPassword) {
-        modalMessage.text("Passwords don't match.");
-      } else {
-        modalMessage.text("Passwords must be at least six characters.");
-      }
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      if (response.status === "Invalid") {
+        console.log("in first branch");
+        const modalMessage = $("#modal-message");
 
-      // Get the modal
-      var modal = document.getElementById("myModal");
+        modalMessage.text("This email is not valid.");
 
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
+        // Get the modal
+        var modal = document.getElementById("myModal");
 
-      // open the modal
-      modal.style.display = "block";
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
 
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-        modal.style.display = "none";
-      };
+        // open the modal
+        modal.style.display = "block";
 
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == modal) {
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
           modal.style.display = "none";
-        }
-      };
-    } else {
-      // sign up the user
-      auth.createUserWithEmailAndPassword(email, password).then(
-        function(cred) {
-          cred.user
-            .updateProfile({
-              displayName: `${firstName}`
-            })
-            .then(
-              function() {
-                window.location = "notify.html"; // After successful sign up, user will be redirected to notify.html
-              },
-              function(error) {
-                console.error(error);
-              }
-            );
-        },
-        function(error) {
-          const modalMessage = $("#modal-message");
+        };
 
-          modalMessage.text(error.message);
-
-          // Get the modal
-          var modal = document.getElementById("myModal");
-
-          // Get the <span> element that closes the modal
-          var span = document.getElementsByClassName("close")[0];
-
-          // open the modal
-          modal.style.display = "block";
-
-          // When the user clicks on <span> (x), close the modal
-          span.onclick = function() {
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
             modal.style.display = "none";
-          };
+          }
+        };
+      } else if (password !== confirmPassword || password.length < 6) {
+        const modalMessage = $("#modal-message");
 
-          // When the user clicks anywhere outside of the modal, close it
-          window.onclick = function(event) {
-            if (event.target == modal) {
-              modal.style.display = "none";
-            }
-          };
+        if (password !== confirmPassword) {
+          modalMessage.text("Passwords don't match.");
+        } else {
+          modalMessage.text("Passwords must be at least six characters.");
         }
-      );
-    }
-  });
 
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // open the modal
+        modal.style.display = "block";
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        };
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+      } else {
+        // sign up the user
+        auth.createUserWithEmailAndPassword(email, password).then(
+          function(cred) {
+            cred.user
+              .updateProfile({
+                displayName: `${firstName}`
+              })
+              .then(
+                function() {
+                  window.location = "notify.html"; // After successful sign up, user will be redirected to notify.html
+                },
+                function(error) {
+                  console.error(error);
+                }
+              );
+          },
+          function(error) {
+            const modalMessage = $("#modal-message");
+
+            modalMessage.text(error.message);
+
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // open the modal
+            modal.style.display = "block";
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              modal.style.display = "none";
+            };
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            };
+          }
+        );
+      }
+    });
+  });
   // login
   $(".form-signin").on("submit", function(event) {
     event.preventDefault();
@@ -138,38 +177,6 @@ $(document).ready(function() {
         var errorCode = error.code;
         var errorMessage = error.message;
       });
-
-    // auth.signInWithEmailAndPassword(email, password).then(
-    //   function(cred) {
-    //     window.location = "notify.html";
-    //   },
-    //   function(error) {
-    //     const modalMessage = $("#modal-message");
-
-    //     modalMessage.text(error.message);
-
-    //     // Get the modal
-    //     var modal = document.getElementById("myModal");
-
-    //     // Get the <span> element that closes the modal
-    //     var span = document.getElementsByClassName("close")[0];
-
-    //     // open the modal
-    //     modal.style.display = "block";
-
-    //     // When the user clicks on <span> (x), close the modal
-    //     span.onclick = function() {
-    //       modal.style.display = "none";
-    //     };
-
-    //     // When the user clicks anywhere outside of the modal, close it
-    //     window.onclick = function(event) {
-    //       if (event.target == modal) {
-    //         modal.style.display = "none";
-    //       }
-    //     };
-    //   }
-    // );
   });
 
   $("#signup-button").on("click", function() {

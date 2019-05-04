@@ -1,70 +1,103 @@
-let numIncomplete, numComplete;
-
 function setupUI(user) {
-  $(".card-title").text("Hi " + user.displayName+ "!");
+  $(".card-title").text("Hi " + user.displayName + "!");
 }
 
 let cred;
 
 // setup tasks
-const setupTasks = (data, collection, uid) => {
+const setupTasks = (data, uid) => {
   cred = uid;
-  if (collection === "incomplete") {
-    numIncomplete = data.length;
 
-    $("#incomplete-tasks").empty();
+  $("#incomplete-tasks").empty();
+  $("#completed-tasks").empty();
 
-    $.each(data, function(index, doc) {
-      const task = doc.data();
-      const li = $("<li>").append(`
-        <input type="checkbox" style="margin-bottom: 5px;" class="check-incomplete" id="check-incomplete-task-${index +
+  $.each(data, function(index, doc) {
+    const task = doc.data();
+
+    let date = task.date;
+
+    if (date) {
+      // if there was a date attached
+      const today = moment();
+      const tomorrow = moment().add(1, "days");
+      const yesterday = moment().subtract(1, "days");
+
+      if (moment(date, "LL").isSame(today, "day")) {
+        date = "Today";
+      } else if (moment(date, "LL").isSame(tomorrow, "day")) {
+        date = "Tomorrow";
+      } else if (moment(date, "LL").isSame(yesterday, "day")) {
+        date = "Yesterday";
+      }
+    }
+
+    const li = $(`<li id="li-${index + 1}" class="to-do-item">`).append(`
+       <p>
+        <label>
+        <input type="checkbox" class="check-incomplete" id="check-task-${index +
           1}">
-        <div id=incomplete-task-${index +
-          1} class="task" style="margin-top: 5px;" value=${doc.id}>${
-        task.title
-      }</div>
-        <button class="delete-incomplete" id="delete-incomplete-task-${index +
-          1}">Delete</button>
-    `);
-      $("#incomplete-tasks").append(li);
-    });
-  } else {
-    numComplete = data.length;
-
-    $("#completed-tasks").empty();
-
-    $.each(data, function(index, doc) {
-      const task = doc.data();
-      const li = $("<li>").append(`
-      <input type="checkbox" style="margin-bottom: 5px;" class="check-complete" id="check-complete-task-${index +
+          <span id=task-${index + 1} class="task" value=${doc.id}>${
+      task.title
+    }<span id="trash-${index +
+      1}" class="fa fa-trash-alt delete" style="position: relative; top: 5px; margin-right: 5px; display: none;"></span></span>
+        </label>
+      </p>
+      <div style="float: right; position: relative; top: 20px;" class="when" id="when-${index +
         1}">
-        <div id=complete-task-${index +
-          1} class="task" style="margin-top: 5px;" value=${doc.id}>${
-        task.title
-      }</div>
-        <button class="delete-complete" id="delete-complete-task-${index +
-          1}">Delete</button>
-    `);
+        ${date}
+      </div>
+  `);
+
+    if (task.state === "incomplete") {
+      $("#incomplete-tasks").append(li);
+    } else {
       $("#completed-tasks").append(li);
-    });
-    $('.check-complete').prop('checked', true);
-  }
+      $(`#check-task-${index + 1}`).attr("class", "check-complete");
+      $(`#check-task-${index + 1}`).prop("checked", true);
+    }
+  });
 };
 
 // create new task
 $("#add-task-form").on("submit", function(event) {
   event.preventDefault();
-
-  const newTask = $("#new-task")
+  const newTask = $("#new_task")
     .val()
     .trim();
 
-  $("#new-task").val("");
+  const dateInput = $("#prefDate")
+    .val()
+    .trim();
+
+  let date;
+
+  if (dateInput) {
+    // if user input a date
+    const today = moment();
+    const tomorrow = moment().add(1, "days");
+    const yesterday = moment().subtract(1, "days");
+
+    if (moment(dateInput, "LL").isSame(today, "day")) {
+      date = "Today";
+    } else if (moment(dateInput, "LL").isSame(tomorrow, "day")) {
+      date = "Tomorrow";
+    } else if (moment(dateInput, "LL").isSame(yesterday, "day")) {
+      date = "Yesterday";
+    }
+  }
+
+  $("#new_task").val("");
+  $("#prefDate").val("");
 
   // store new task in firebase
-  db.collection("users").doc(cred).collection("incomplete")
+  db.collection("users")
+    .doc(cred)
+    .collection("tasks")
     .add({
-      title: newTask
+      title: newTask,
+      state: "incomplete",
+      date: dateInput,
+      unixTime: moment(dateInput).format("X")
     })
     .then(() => {})
     .catch(err => {
@@ -72,7 +105,7 @@ $("#add-task-form").on("submit", function(event) {
     });
 });
 
-$(document).on("click", ".delete-incomplete", function(event) {
+$(document).on("click", ".delete", function(event) {
   event.preventDefault();
 
   // get the id attribute of the delete
@@ -80,68 +113,118 @@ $(document).on("click", ".delete-incomplete", function(event) {
     .attr("id")
     .charAt($(this).attr("id").length - 1);
 
-  deleteTask("incomplete", id);
-});
-
-$(document).on("click", ".delete-complete", function(event) {
-  event.preventDefault();
-
-  // get the id attribute of the delete
-  const id = $(this)
-    .attr("id")
-    .charAt($(this).attr("id").length - 1);
-
-  deleteTask("complete", id);
+  deleteTask(id);
 });
 
 $(document).on("click", ".check-incomplete", function(event) {
-
   // get the id attribute of the check input
   const id = $(this)
     .attr("id")
     .charAt($(this).attr("id").length - 1);
 
+  let when = $(`#when-${id}`)
+    .text()
+    .trim();
+
+  if (when === "Today") {
+    when = moment().format("LL");
+  } else if (when === "Tomorrow") {
+    when = moment()
+      .add(1, "days")
+      .format("LL");
+  } else if (when === "Yesterday") {
+    when = moment()
+      .subtract(1, "days")
+      .format("LL");
+  }
+
   // store checked task in completed collection
-  db.collection("users").doc(cred).collection("complete")
+  db.collection("users")
+    .doc(cred)
+    .collection("tasks")
     .add({
-      title: $(`#incomplete-task-${id}`).text()
+      title: $(`#task-${id}`).text(),
+      state: "complete",
+      date: when,
+      unixTime: moment(when).format("X")
     })
     .then(() => {})
     .catch(err => {
       console.log(err.message);
     });
 
-  // remove checked task from incomplete collection
-  deleteTask("incomplete", id);
+  // remove from incomplete section
+  deleteTask(id);
 });
 
 $(document).on("click", ".check-complete", function(event) {
-
   // get the id attribute of the check input
   const id = $(this)
     .attr("id")
     .charAt($(this).attr("id").length - 1);
 
+  let when = $(`#when-${id}`)
+    .text()
+    .trim();
+
+  if (when === "Today") {
+    when = moment().format("LL");
+  } else if (when === "Tomorrow") {
+    when = moment()
+      .add(1, "days")
+      .format("LL");
+  } else if (when === "Yesterday") {
+    when = moment()
+      .subtract(1, "days")
+      .format("LL");
+  }
+
   // store checked task in incomplete collection
-  db.collection("users").doc(cred).collection("incomplete")
+  db.collection("users")
+    .doc(cred)
+    .collection("tasks")
     .add({
-      title: $(`#complete-task-${id}`).text()
+      title: $(`#task-${id}`).text(),
+      state: "incomplete",
+      date: when,
+      unixTime: moment(when).format("X")
     })
     .then(() => {})
     .catch(err => {
       console.log(err.message);
     });
 
-  // remove checked task from incomplete collection
-  deleteTask("complete", id);
+  // remove from complete section
+  deleteTask(id);
 });
 
-function deleteTask(collectionName, id) {
-  db.collection("users").doc(cred).collection(collectionName)
-    .doc($(`#${collectionName}-task-${id}`).attr("value"))
+function deleteTask(id) {
+  db.collection("users")
+    .doc(cred)
+    .collection("tasks")
+    .doc($(`#task-${id}`).attr("value"))
     .delete()
     .then(function() {})
     .catch(function(error) {
       console.error("Error removing document: ", error);
     });
 }
+
+$(document).on("mouseenter", ".to-do-item", function() {
+  const id = $(this)
+    .attr("id")
+    .charAt($(this).attr("id").length - 1);
+  $(`#trash-${id}`).show();
+});
+
+$(document).on("mouseleave", ".to-do-item", function() {
+  const id = $(this)
+    .attr("id")
+    .charAt($(this).attr("id").length - 1);
+  $(`#trash-${id}`).hide();
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  var elems = document.querySelectorAll(".datepicker");
+  M.Datepicker.init(elems);
+});

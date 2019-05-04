@@ -40,14 +40,27 @@
       rel="stylesheet"
     />
 
-    <!-- Bootstrap CSS -->
+    <!-- Font awesome -->
 
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
+
+    <!-- Materialize icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Compiled and minified Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Link to Moment.js -->
+    <script src="http://momentjs.com/downloads/moment.min.js"></script>
+
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="assets/notify.css" />
 
@@ -82,7 +95,7 @@
     <div class="page-wrapper toggled">
       <nav class="sidebar-wrapper">
         <!-- sidebar-brand  -->
-        <div class="sidebar-item- sidebar-brand">
+        <div class="sidebar-item sidebar-brand">
           <img
             src="assets/images/dolphin.svg"
             width="70"
@@ -98,70 +111,58 @@
           <ul>
             <li class="sidebar-dropdown">
               <a href="" class="hover-">
-                <i class="fa fa-tachometer-alt"></i>
-                <p>
-                  <img
-                    src="assets/images/add.svg"
-                    alt="alt text"
-                    style="float: center"
-                    height="20"
-                    width="20"
-                    span
-                    class="menu-text"
-                  /><span>&nbsp;&nbsp;&nbsp;Add Task</span>
-                </p></a
-              >
+                <img
+                  src="assets/images/add.svg"
+                  alt="alt text"
+                  style="float: center"
+                  height="20"
+                  width="20"
+                  span
+                  class="menu-text"
+                /><span>&nbsp;&nbsp;&nbsp;Add Task</span>
+              </a>
             </li>
 
             <li class="sidebar-dropdown">
               <a href="#" class="hover-">
-                <i class="fa fa-shopping-cart"></i>
-                <p>
-                  <img
-                    src="assets/images/calendar.svg"
-                    alt="alt text"
-                    style="float: center"
-                    width="20"
-                    height="20"
-                    span
-                    class="menu-text"
-                  /><span>&nbsp;&nbsp;&nbsp;Calendar</span>
-                </p></a
-              >
+                <img
+                  src="assets/images/calendar.svg"
+                  alt="alt text"
+                  style="float: center"
+                  width="20"
+                  height="20"
+                  span
+                  class="menu-text"
+                /><span>&nbsp;&nbsp;&nbsp;Calendar</span>
+              </a>
             </li>
 
             <li class="sidebar-dropdown">
               <a href="features.html" class="hover-">
-                <i class="fa fa-calendar"></i>
-                <p>
-                  <img
-                    src="assets/images/feature.svg"
-                    alt="alt text"
-                    style="float: center"
-                    width="20"
-                    height="20"
-                    span
-                    class="menu-text"
-                  /><span>&nbsp;&nbsp;&nbsp;Features</span>
-                </p></a
-              >
+                <img
+                  src="assets/images/feature.svg"
+                  alt="alt text"
+                  style="float: center"
+                  width="20"
+                  height="20"
+                  span
+                  class="menu-text"
+                /><span>&nbsp;&nbsp;&nbsp;Features</span>
+              </a>
             </li>
             <li class="sidebar-dropdown">
               <a href="index.html" class="hover-">
-                <i class="fa fa-folder"></i>
-                <p>
-                  <img
-                    src="assets/images/logout (1).svg"
-                    alt="alt text"
-                    style="float: center"
-                    width="20"
-                    height="20"
-                    span
-                    class="menu-text"
-                  /><span id="logout" class="hover-"
-                    >&nbsp;&nbsp;&nbsp;Sign Out</span
-                  >
-                </p>
+                <img
+                  src="assets/images/logout (1).svg"
+                  alt="alt text"
+                  style="float: center"
+                  width="20"
+                  height="20"
+                  span
+                  class="menu-text"
+                /><span id="logout" class="hover-"
+                  >&nbsp;&nbsp;&nbsp;Sign Out</span
+                >
               </a>
             </li>
           </ul>
@@ -171,77 +172,74 @@
 
     <!-- This is the start of the Primary Card that contains the Tasks Added -->
     <div
-      class="container-main justify-content-right"
+      class="container-main"
       class="card card-custom bg-white border-white border-0"
     >
-      <div class="card-custom-avatar"></div>
-      <div class="card-body" style="overflow-y: auto">
+      <div class="card-body">
         <h4 class="card-title"></h4>
-        <p class="card-text">
-          <a
-            href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
-            target="_blank"
-          ></a>
-        </p>
         <div class="tasks-container-header">
-          <br />
-          <form id="add-task-form">
-            <img
-              src="assets/images/add-button.svg"
-              width="30"
-              height="30"
-              class="d-inline-block align-top"
-              alt=""
-            /><label for="new-task">&nbsp;&nbsp;New Task</label>
+          <div class="row">
+            <form id="add-task-form" class="col s12">
+              <div class="row">
+                <div class="input-field">
+                  <input
+                    autocomplete="off"
+                    id="new_task"
+                    type="text"
+                    class="validate"
+                  />
+                  <label for="new_task">Add a to-do...</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field">
+                  <input
+                    autocomplete="off"
+                    id="prefDate"
+                    type="text"
+                    class="datepicker"
+                  />
+                  <label for="prefDate">Select date</label>
+                </div>
+              </div>
+              <div class="row">
+                <button id="add-task-button" type="submit">
+                  Add
+                </button>
+              </div>
+            </form>
+          </div>
 
-            <br />
-            <br />
+          <div class="row">
+            <div class="col s12">
+              <span class="fa fa-calendar"> To Do</span>
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <ul id="incomplete-tasks"></ul>
+            </div>
+          </div>
 
-            <input autocomplete="off" id="new-task" type="text" /><button
-              type="submit"
-              id="add-task"
-            >
-              Add
-            </button>
-            <!-- <input type="text" class="datepicker"> -->
-          </form>
-
-          <h3>To - Do</h3>
-          <ul id="incomplete-tasks"></ul>
-
-          <img
-            src="assets/images/checkmark-verify-interface-symbol-button.svg"
-            width="30"
-            height="30"
-            class="d-inline-block align-top"
-            alt=""
-          />&nbsp;&nbsp;
-          <h3>Completed</h3>
-          <ul id="completed-tasks"></ul>
+          <div class="row">
+            <div class="col s12">
+              <span class="fa fa-calendar-check"> Completed</span>
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <ul id="completed-tasks"></ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <script type="text/javascript" src="assets/app.js"></script>
-
-    <!-- Compiled and minified Materialize JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
     <script src="assets/data.js"></script>

@@ -137,12 +137,11 @@ nav {
 /* The primary container for the No-Tify page */
 .container-main {
   margin-top: 10px;
-  margin-left: 450px;
+  margin-left: 430px;
   align-content: center;
   font-family: Raleway, sans-serif;
   overflow: hidden;
-  min-height: 1000px;
-  max-width: 900px;
+  width: 60%;
   box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
 }
 
@@ -351,11 +350,9 @@ nav {
   margin: 0;
   padding: 0;
   font-family: Raleway, sans-serif;
-  font-size: 20px;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
 
-  margin-top: px;
   width: 280px;
   height: 100%;
   max-height: 100%;
@@ -367,14 +364,18 @@ nav {
   transition: left 0.3s ease, width 0.3s ease;
   background: none;
   color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-wrapper li {
+  width: 100%;
 }
 
 .sidebar-brand {
   background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
-}
-
-.sidebar-dropdown {
-  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .sidebar-wrapper ul {
@@ -386,17 +387,17 @@ nav {
   text-decoration: none;
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
-  font-size: 18px;
+  font-size: 16px;
   color: #000;
   background: rgba(255, 255, 255, 0.3);
-}
-
-.sidebar-wrapper span {
-  /* margin-bottom: 10px; */
+  padding: 11px 0;
 }
 
 .sidebar-wrapper a:hover {
-  background: rgba(255, 255, 255, 0.2);
+  color: rgb(139, 190, 248);
+  font-weight: 700;
+  background: rgba(143, 143, 143, 0.2);
+  cursor: pointer;
 }
 .sidebar-wrapper .sidebar-item {
   -webkit-transition: all 0.3s linear;
@@ -429,8 +430,7 @@ nav {
   left: 0;
 }
 
-.sidebar-wrapper .sidebar-brand {
-  padding: 1rem 1.2rem;
+/* .sidebar-wrapper .sidebar-brand {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -438,7 +438,7 @@ nav {
   -ms-flex-align: center;
   align-items: center;
   height: 55px;
-}
+} */
 .sidebar-wrapper .sidebar-brand > a {
   text-transform: uppercase;
   font-weight: bold;
@@ -518,6 +518,7 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-content: center;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   -webkit-box-align: center;
@@ -525,7 +526,6 @@ nav {
   align-items: center;
   text-decoration: none;
   position: relative;
-  padding: 8px 30px 8px 20px;
   width: 100%;
 }
 .sidebar-wrapper .sidebar-menu ul li a:hover > i::before {
@@ -546,7 +546,6 @@ nav {
 .sidebar-wrapper .sidebar-menu ul li a .menu-text {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
-  flex-grow: 1;
   white-space: nowrap;
   text-overflow: ellipsis;
   -ms-flex-negative: 1;

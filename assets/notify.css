@@ -7,9 +7,6 @@ body {
   background-color: rgba(233, 232, 232, 0.356);
 }
 
-
-
-
 /* The primary hero Image */
 
 .hero-image-notify {
@@ -35,8 +32,6 @@ body {
   transform: translate(-50%, -50%);
   color: rgb(255, 255, 255);
   font-family: Raleway, sans-serif;
-
-  
   }
 
   /* THE SPECIALIZED FONT FOR THE TITLE */
@@ -133,12 +128,6 @@ h1::after {
 background-color: #f8f9fa;
 }
 
-.tasks-container-header{
-
-
-  border-bottom-style: solid;
-}
-
 .tasks-container {
   
   font-family: Raleway, sans-serif;
@@ -179,7 +168,7 @@ h3{
 }
 .sidebar-item.sidebar-brand{
 
-  padding: 0;
+  padding: 10px 0;
   margin: 0;
 }
 
@@ -237,10 +226,6 @@ button:hover {
   color: #333;
 }
 /* Heading */
-h3,
-
-
-}
 
 /* Custom Form CSS */
 
@@ -298,6 +283,7 @@ input[type="text"][required] + label[placeholder]:before {
   background-size: 100% 5px;
   background-repeat: no-repeat;
   background-position: center;
+}
 
 
 /* New Task */
@@ -316,13 +302,13 @@ p > button:hover {
 /* Custom Button For Add Task */
 
 
-
 /* Task list */
 li {
-  overflow: hidden;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  /* overflow: hidden; */
+  /* padding: 20px 0; */
+  border-top: 1px solid #aaa;
 }
+
 li > input[type="checkbox"] {
   margin: 0 10px;
   position: relative;
@@ -360,8 +346,39 @@ ul li.editMode label {
   display:none;
 }
 
+.container-main {
+   background: linear-gradient(rgba(100, 100, 100, 0.2), rgba(100, 100, 100, 0));
+   padding: 20px 35px;
+   min-height: 100vh;
+}
+
+.card-title {
+  margin-bottom: 20px;
+}
+
+.datepicker-cancel{
+  overflow: visible;
+}
+
+#add-task-button{
+  background: #48A69A; 
+  color: white; 
+  padding:10px 15px;
+}
 
 
+#add-task-button:hover {
+  background-color: rgb(89, 192, 177);
+}
 
+form {
+  border-top: 2px solid #333;
+}
 
+.container-main li {
+  border: none;
+}
 
+.fa-trash-alt:hover {
+  display: block;
+}
