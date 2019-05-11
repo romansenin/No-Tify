@@ -5,6 +5,8 @@ This is an app my group and I worked on. It allows users to sign up for an accou
 Technologies:
 * HTML5
 * CSS3
+* Materialize CSS
+* Moments.js
 * jQuery
 * Google Cloud Firestore
 
